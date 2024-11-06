@@ -112,6 +112,8 @@ sim_res_2_plot2 = sim_res_2 |>
 sim_res_2_plot2
 ```
 
+This plot shows the average estimated μ hat across all simulations, regardless of whether the null hypothesis was rejected. It follows the true value of μ linearly, indicating that, on average, the estimates are unbiased for all values of μ.
+
 ```{r}
 # average estimate of μ_hat only in samples for which the null was rejected on the y axis and the true value of μ on the x axis.
 
@@ -127,3 +129,6 @@ sim_res_2_plot3 = sim_res_2 |>
 sim_res_2_plot3
 ```
 
+This plot shows the average estimate of μ only for simulations where the null hypothesis μ=0 was rejected. For smaller values of μ, the estimates are slightly biased upward, as only larger sample means tend to lead to rejection of the null.
+
+The sample average of μ hat in tests where the null is rejected is not always equal to the true value of μ. For smaller values of μ, this average is biased upward because only higher sample means lead to rejection of the null. As μ increases, this bias diminishes, and the average estimate aligns more closely with the true μ, since larger effect sizes increase the likelihood of observing a sample mean that reflects the true population mean without the need for unusually high values to achieve significance.
