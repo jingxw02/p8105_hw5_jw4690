@@ -26,5 +26,15 @@ sim_res = expand_grid(
   group_by(n) |>
   summarize(prob = mean(res))
 
+sim_res_plot = sim_res |>
+  ggplot(aes(x = n, y = prob)) +
+  geom_line() +
+  labs(
+    title = "Probability of Shared Birthdays as a Function of Group Size",
+    x = "Group Size",
+    y = "Probability of at least two people sharing a birthday"
+  )
+
+sim_res_plot
 ```
 
