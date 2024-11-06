@@ -60,6 +60,23 @@ sim_power = function(mu, n = 30, sigma = 5, alpha = 0.05) {
   
   return(out_df)
 }
+```
 
+```{r}
+n_sim = 5000
+mu_values = c(0, 1, 2, 3, 4, 5, 6)
+
+sim_res_2 = expand_grid(
+  mu = mu_values,
+  iter = 1:n_sim
+) |>
+  mutate(sim_output = map(mu, sim_power)) |>
+  unnest(sim_output) |>
+  group_by(mu) |>
+  summarize(
+    power = mean(p_value < 0.05),
+    avg_estimate = mean(estimate),
+    avg_estimate_rejected = mean(estimate[p_value < 0.05])
+  )
 ```
 
