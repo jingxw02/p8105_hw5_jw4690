@@ -95,6 +95,8 @@ sim_res_2_plot = sim_res_2 |>
 sim_res_2_plot
 ```
 
+There is a strong, positive association between effect size and power. Larger effect sizes increase the probability of detecting an effect. As the effect size μ increases, the power of the test also increases. This means that the test is more likely to correctly reject the null hypothesis as the true difference from the hypothesized mean μ=0 becomes larger.
+
 ```{r}
 # average estimate of μ_hat on the y axis and the true value of μ on the x axis.
 
@@ -121,6 +123,7 @@ sim_res_2_plot3 = sim_res_2 |>
     x = expression(mu),
     y = "Average Estimate of Mu (Null Rejected)"
   )
+
 sim_res_2_plot3
 ```
 
