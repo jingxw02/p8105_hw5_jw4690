@@ -80,3 +80,18 @@ sim_res_2 = expand_grid(
   )
 ```
 
+```{r}
+# Make a plot showing the proportion of times the null was rejected (the power of the test) on the y axis and the true value of μ on the x axis.
+
+sim_res_2_plot = sim_res_2 |>
+  ggplot(aes(x = mu, y = power)) +
+  geom_line() +
+  labs(
+    title = "Power of the Test as a Function of Effect Size (mu)",
+    x = expression(mu),
+    y = "Power (Probability of Rejecting Null)"
+  )
+
+sim_res_2_plot
+```
+
