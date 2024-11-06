@@ -4,3 +4,10 @@ author: "Jingxi Wang"
 date: "2024-11-06"
 output: github_document
 ---
+
+## Problem 1
+
+```{r setup, echo = FALSE, message = FALSE}
+library(tidyverse)
+```
+
