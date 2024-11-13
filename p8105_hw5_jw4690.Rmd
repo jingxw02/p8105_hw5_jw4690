@@ -204,3 +204,22 @@ city_results = homicide_summary |>
 city_results
 ```
 
+```{r}
+# Create a plot that shows the estimates and CIs for each city
+
+city_plot = city_results |>
+  mutate(city_state = fct_reorder(city_state, estimate)) |>
+  ggplot(aes(y = city_state, x = estimate)) +
+  geom_point() +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.2) +
+  labs(
+    title = "Proportion of Unsolved Homicides by City",
+    y = "City",
+    x = "Estimated Proportion of Unsolved Homicides"
+  ) +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 6))
+
+city_plot
+```
+
