@@ -190,3 +190,17 @@ conf_low
 conf_high
 ```
 
+```{r, warning = FALSE}
+# run prop.test for each of the cities
+
+city_results = homicide_summary |>
+  mutate(
+    prop_test = purrr::map2(unsolved_homicides, total_homicides, ~ prop.test(.x, .y)),
+    prop_test_tidy = purrr::map(prop_test, broom::tidy)
+  ) |>
+  unnest(prop_test_tidy) |>
+  select(city_state, estimate, conf.low, conf.high)
+
+city_results
+```
+
