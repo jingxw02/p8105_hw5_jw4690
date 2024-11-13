@@ -137,8 +137,6 @@ The sample average of μ hat in tests where the null is rejected is not always e
 ## Problem 3
 
 ```{r}
-url = "https://raw.githubusercontent.com/washingtonpost/data-homicides/refs/heads/master/homicide-data.csv"
-
-homicide_df = read_csv(url)
+homicide_df = read_csv("./data/homicide-data.csv")
 ```
 
