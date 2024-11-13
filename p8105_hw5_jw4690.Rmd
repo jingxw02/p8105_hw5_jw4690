@@ -171,3 +171,22 @@ Baltimore_prop_test <- prop.test(baltimore_df$unsolved_homicides, baltimore_df$t
 Baltimore_prop_test
 ```
 
+```{r}
+# Apply broom::tidy to the prop.test output
+
+baltimore_results = broom::tidy(Baltimore_prop_test)
+
+# Pull the estimated proportion and confidence intervals
+
+estimated_proportion = baltimore_results$estimate
+
+estimated_proportion
+
+conf_low = baltimore_results$conf.low
+
+conf_high = baltimore_results$conf.high
+
+conf_low
+conf_high
+```
+
