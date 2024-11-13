@@ -154,3 +154,20 @@ homicide_summary = homicide_df |>
   )
 ```
 
+```{r}
+# Filter data for Baltimore, MD
+
+baltimore_df = homicide_df |>
+  filter(city == "Baltimore" & state == "MD") |>
+  summarize(
+    total_homicides = n(),
+    unsolved_homicides = sum(disposition %in% c("Closed without arrest", "Open/No arrest"))
+  )
+
+# Perform proportion test
+
+Baltimore_prop_test <- prop.test(baltimore_df$unsolved_homicides, baltimore_df$total_homicides)
+
+Baltimore_prop_test
+```
+
