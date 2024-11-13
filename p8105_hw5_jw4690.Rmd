@@ -142,3 +142,15 @@ homicide_df = read_csv("./data/homicide-data.csv")
 
 The raw dataset has `r nrow(homicide_df)` observations and `r ncol(homicide_df)` variables detailing each case's unique ID, reported date, victim information, location, and case status. The disposition indicates if a case is closed, unsolved, or open without arrest.
 
+```{r}
+# Create a city_state variable 
+
+homicide_summary = homicide_df |>
+  mutate(city_state = paste(city, state, sep = ", ")) |>
+  group_by(city_state) |>
+  summarize(
+    total_homicides = n(),
+    unsolved_homicides = sum(disposition %in% c("Closed without arrest", "Open/No arrest"))
+  )
+```
+
