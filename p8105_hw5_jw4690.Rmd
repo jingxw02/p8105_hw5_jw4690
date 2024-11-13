@@ -140,3 +140,5 @@ The sample average of μ hat in tests where the null is rejected is not always e
 homicide_df = read_csv("./data/homicide-data.csv")
 ```
 
+The raw dataset has `r nrow(homicide_df)` observations and `r ncol(homicide_df)` variables detailing each case's unique ID, reported date, victim information, location, and case status. The disposition indicates if a case is closed, unsolved, or open without arrest.
+
