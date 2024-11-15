@@ -176,6 +176,8 @@ Baltimore_prop_test
 
 baltimore_results = broom::tidy(Baltimore_prop_test)
 
+baltimore_results
+
 # Pull the estimated proportion and confidence intervals
 
 estimated_proportion = baltimore_results$estimate
